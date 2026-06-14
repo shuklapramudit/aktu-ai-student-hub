@@ -76,6 +76,37 @@ export default function App() {
     setLoadingReviews(false);
   };
 
+  // Page load par browser tab ka title aur favicon set karo
+  // (App.jsx ke andar hi, taaki index.html edit karne ki zaroorat na pade)
+  useEffect(() => {
+    document.title = "AKTU AI Academic Hub";
+
+    const faviconSvg = `
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
+        <defs>
+          <linearGradient id="aktuGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#22d3ee"/>
+            <stop offset="100%" stop-color="#c084fc"/>
+          </linearGradient>
+        </defs>
+        <rect width="24" height="24" rx="5" fill="#04060a"/>
+        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"
+              stroke="url(#aktuGradient)" stroke-width="2.5"
+              stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      </svg>
+    `;
+    const faviconUrl = `data:image/svg+xml,${encodeURIComponent(faviconSvg)}`;
+
+    let link = document.querySelector("link[rel~='icon']");
+    if (!link) {
+      link = document.createElement("link");
+      link.rel = "icon";
+      document.head.appendChild(link);
+    }
+    link.type = "image/svg+xml";
+    link.href = faviconUrl;
+  }, []);
+
   // Page load / refresh hone par hi DB se latest reviews fetch karo
   // taaki reviews refresh ke baad bhi gayab na ho (fully dynamic & persistent)
   useEffect(() => {
