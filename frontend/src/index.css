@@ -1,0 +1,27 @@
+@import "tailwindcss";
+
+:root {
+  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
+  --mono: ui-monospace, Consolas, monospace;
+  font-family: var(--sans);
+  background-color: #020617;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #020617;
+}
+
+details summary::-webkit-details-marker {
+  display: none;
+}
+
+details[open] summary ~ * {
+  animation: fadeIn 0.25s ease-in-out;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(-4px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
