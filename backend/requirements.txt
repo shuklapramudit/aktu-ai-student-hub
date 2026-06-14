@@ -5,3 +5,5 @@ psycopg2-binary
 python-dotenv
 pydantic
 google-generativeai
+httpx
+beautifulsoup4
