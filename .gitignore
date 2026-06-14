@@ -1,0 +1,10 @@
+# Backend ignores
+backend/venv/
+backend/__pycache__/
+backend/.env
+backend/aktu_hub.db
+
+# Frontend ignores
+frontend/node_modules/
+frontend/dist/
+frontend/.env
